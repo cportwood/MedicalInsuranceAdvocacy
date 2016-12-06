@@ -5,12 +5,13 @@ using AutoMapper;
 using MedicalInsuranceAdvocacy.DataModel.Patient;
 using MedicalInsuranceAdvocacy.Repository.Repositories;
 using MedicalInsuranceAdvocacy.DbContext.DbContexts;
+using MedicalInsuranceAdvocacy.Model.Patient;
 
 namespace MedicalInsuranceAdvocacy.Service.Services
 {
     public interface IPatientService
     {
-        Task<Patient> GetPatientById(int patientId);
+        Task<PatientDto> GetPatientById(int patientId);
 
       
     }
@@ -26,9 +27,9 @@ namespace MedicalInsuranceAdvocacy.Service.Services
             _patientRepository = new PatientRepository(_applicationContext);
             _mapper = mapper;
         }
-        public async Task<Patient> GetPatientById(int patientId)
+        public async Task<PatientDto> GetPatientById(int patientId)
         {
-                return await _patientRepository.GetPatientById(patientId);
+             return _mapper.Map<PatientDto>(await _patientRepository.GetPatientById(patientId));
         }
 
       
