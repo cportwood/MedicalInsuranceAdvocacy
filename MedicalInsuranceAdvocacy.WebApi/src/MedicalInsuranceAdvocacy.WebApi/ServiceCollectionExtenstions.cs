@@ -1,8 +1,7 @@
 ﻿using MedicalInsuranceAdvocacy.Service.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Exl.WebApi.Aspen
+namespace MedicalInsuranceAdvocacy.WebApi
 {
     public static class ServiceCollectionExtenstions
     {
